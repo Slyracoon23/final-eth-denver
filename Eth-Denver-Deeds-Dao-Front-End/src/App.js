@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
+import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
 import Home from './components/Home';
-import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
 
 function App() {
 
@@ -18,10 +17,8 @@ function App() {
       supportedChainIds={supportedChainIds}
       connectors={connectors}
     >
-      <div>
-        <Header />
-        <Home/>
-      </div>
+      <Home />
+      
     </ThirdwebWeb3Provider>
       
     

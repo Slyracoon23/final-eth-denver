@@ -1,109 +1,87 @@
-import React from 'react'
-import styled from 'styled-components'
-import Button from './Button'
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { useWeb3 } from "@3rdweb/hooks" 
-
-
+import React from 'react';
+import styled from "styled-components";
+import { linkColor, linkHoverColor } from '../constants/theme';
 
 function Header() {
-    const { connectWallet, address, error } = useWeb3();
-    return (
-        <Nav>
-            <Logo> DeedsDAO</Logo>
-            
-            <NavItems>
-                {/* <NavItem>
-
-                    <SearchIcon style={{'width': "17.5px", "margin-right": "7px",
-                        "display": "flex", "align-items": "center", "justify-content": "center"
-                    }}/>
-                    <span>Search</span>
-                    
-                </NavItem> */}
-
-                <NavItem>
-                    <a >Marketplace</a>
-                </NavItem>
-                {/* <NavItem>
-                    <AccountCircleIcon style={{'width': "17.5px", "margin-right": "7px",
-                         "display": "flex", "align-items": "center", "justify-content": "center"}}/>
-                    <span>Profile</span>
-                    <ArrowDropDownIcon style={{"width": "24px","height": "24px", "margin-left": "7px",
-                         "display": "flex", "align-items": "center", "justify-content": "center"}}/>
-                </NavItem> */}
-                <Button text="Create NFT" color= "#ff8c00" borderColor="1px solid #ff8c00"/>
-                <ConnectWallet className="">
-                    {address ? (
-                    <div className="address">
-                        <p className="wallet">Wallet Connected</p>
-                        <p><small>{address.slice(0, 7)}...{address.slice(35)}</small></p>
-                    </div>
-                    ) : (
-                    <Button text="Connect Wallet" color= "#ff8c00" borderColor="none" 
-                    icon = {true}  click={() => connectWallet('injected')}/> )}
-                </ConnectWallet>
-            </NavItems>
-        </Nav>
-    )
+  return (
+    <Menu>
+      <Logo>DeedsDAO</Logo>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Marketplace</a></li>
+        </ul>
+      </nav>
+      <ConnectWallet>
+        <button>Connect Wallet</button>
+      </ConnectWallet>
+    </Menu>
+  )
 }
 
-export default Header
-
-const Nav = styled.div`
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    height: 70px;
-    padding: 0 36px;
-
-`
-
-const Logo = styled.div`
-    display: flex;
-    align-items: center;
-    flex: 1;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #ff8c00;
-
-`
-
-const NavItems = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
-
-const NavItem = styled.div`
-
-    margin-left: 25px;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-`
 
 const ConnectWallet = styled.div`
+  display: flex;
+  align-items: center;
 
-    .address {
-        margin-bottom: 0;
-        margin-left: 25px;
-        
+  button {
+    color: ${linkHoverColor};
+    white-space: nowrap;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 2px solid ${linkHoverColor};
+    height: 40px;
+    padding: 8px;
+  }
+`;
 
-        .wallet {
-            color: #ff8c00;
-            margin-bottom: 0;
-            font-weight: bold;
+
+const Logo = styled.div`
+  color: ${linkHoverColor};
+  line-height: 100px;
+`;
+
+const Menu = styled.div`
+  background: white;
+  box-shadow: 0px 10px 25px -3px rgba(43, 61, 80, 0.1);
+  display: flex;
+  padding: 0 20px;
+
+  nav {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+    margin: 0 20px;
+
+    ul {
+      display: flex;
+
+      li {
+        display: flex;
+        justify-content: center;
+        height: 100px;
+        line-height: 100px;
+        align-items: center;
+
+        &:not(:last-child) {
+          margin-right: 20px;
         }
-        p {
-            margin-top: 0;
-            margin-bottom: 0;
-            
+
+        a {
+          height: 100px;
+          color: ${linkColor};
+          border-bottom: 2px solid transparent;
+
+          &:hover {
+            color: ${linkHoverColor};
+            border-bottom: 2px solid ${linkHoverColor};
+          }
         }
+      }
     }
+  }
+`;
 
-`
+export default Header;
