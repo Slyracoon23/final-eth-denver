@@ -11,7 +11,7 @@ function Button({ text, color, borderColor, icon, icon_one, icon_two, click }) {
         <Buttons bgColor = {color} border={borderColor} onClick={click}>
 
             { icon && <AccountBalanceWalletIcon style= {{'width': "17.5px", "marginRight": "7px",
-                        "display": "flex", "align-items": "center", "justifyContent": "center"
+                        "display": "flex", "alignItems": "center", "justifyContent": "center"
                     }}/> }
             
             <span>{ text }</span>
