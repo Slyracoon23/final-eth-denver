@@ -1,25 +1,137 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
-import { linkColor, linkHoverColor, primaryColor, primaryHoverColor } from '../constants/theme';
+import { primaryColor, primaryHoverColor } from '../constants/theme';
 import logo from '../assets/logo.png';
+import { hamburger, close } from '../constants/icons';
+import { breakpoint, device } from '../constants/breakpoints';
+import { menu } from '../constants/menu';
+import { black, gray } from '../constants/theme';
 
-function Header() {
+const Header = ({setMobileOpen, mobileOpen}) => {
+  const headerStyle = { background: mobileOpen ? gray : 'white' };
+
   return (
-    <Menu>
+    <FullHeader style={headerStyle}>
       <Logo><img src={logo} alt="Logo" /></Logo>
-      <nav>
+      <DesktopMenu>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Team</a></li>
-          <li><a href="#">Marketplace</a></li>
+          {menu.map(entry => (
+            <li key={entry.idx}><a href={entry.url}>{entry.label}</a></li>
+          ))}
         </ul>
-      </nav>
-      <ConnectWallet>
-        <button><span>Connect Wallet</span></button>
-      </ConnectWallet>
-    </Menu>
+      </DesktopMenu>
+      <div className="right">
+        <ConnectWallet>
+          <button><span>Connect Wallet</span></button>
+        </ConnectWallet>
+        <MobileMenu>
+          {!mobileOpen && <img src={hamburger} alt="Menu" onClick={ () => setMobileOpen(!mobileOpen) } />}
+          {mobileOpen && (
+            <>
+              <img src={close} alt="Close Menu" onClick={ () => setMobileOpen(!mobileOpen) } />
+              <nav>
+                <ul>
+                  {menu.map(entry => (
+                    <li key={entry.idx}><a href={entry.url}>{entry.label}</a></li>
+                  ))}
+                </ul>
+              </nav>
+            </>
+          )}
+        </MobileMenu>
+      </div>
+    </FullHeader>
   )
 }
+
+const DesktopMenu = styled.nav`
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  width: 100%;
+  margin: 0 20px;
+
+  ${breakpoint(device.md)} {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      line-height: 100px;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      a {
+        height: 100px;
+        color: ${primaryColor};
+        border-bottom: 2px solid transparent;
+        padding: 0 12px;
+
+        &:hover {
+          color: ${primaryHoverColor};
+          border-bottom: 2px solid ${primaryHoverColor};
+        }
+      }
+    }
+  }
+`;
+
+const MobileMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  cursor: pointer;
+
+  img {
+    display: none;
+    padding: 20px;
+
+    ${breakpoint(device.md)} {
+      display: inline;
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    right: 0;
+    position: fixed;
+    left: 0;
+    top: 100px;
+    bottom: 0;
+    background: ${gray};
+    padding: 60px 40px 90px 40px;
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        margin: 24px 0;
+
+        a {
+          font-size: 30px;
+          color ${black};
+
+          &:hover {
+            color: ${primaryHoverColor};
+          }
+        }
+      }
+    }
+  }
+`;
 
 
 const ConnectWallet = styled.div`
@@ -59,12 +171,12 @@ const ConnectWallet = styled.div`
 
       &::before {
         width: 100%;
+        box-shadow: 0 0 0 2px ${primaryHoverColor};
         background: ${primaryHoverColor};
       }
     }
   }
 `;
-
 
 const Logo = styled.div`
   padding: 20px;
@@ -74,46 +186,19 @@ const Logo = styled.div`
   }
 `;
 
-const Menu = styled.div`
+const FullHeader = styled.div`
   background: white;
   box-shadow: 0px 10px 25px -3px rgba(43, 61, 80, 0.1);
   display: flex;
   padding: 0 20px;
+  height: 100px;
 
-  nav {
+  ${breakpoint(device.md)} {
+    justify-content: space-between;
+  }
+
+  .right {
     display: flex;
-    align-items: center;
-    min-width: 0;
-    width: 100%;
-    margin: 0 20px;
-
-    ul {
-      display: flex;
-
-      li {
-        display: flex;
-        justify-content: center;
-        height: 100px;
-        line-height: 100px;
-        align-items: center;
-
-        &:not(:last-child) {
-          margin-right: 20px;
-        }
-
-        a {
-          height: 100px;
-          color: ${linkColor};
-          border-bottom: 2px solid transparent;
-          padding: 0 12px;
-
-          &:hover {
-            color: ${linkHoverColor};
-            border-bottom: 2px solid ${linkHoverColor};
-          }
-        }
-      }
-    }
   }
 `;
 

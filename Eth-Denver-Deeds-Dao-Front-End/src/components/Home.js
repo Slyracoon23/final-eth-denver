@@ -1,13 +1,12 @@
 import React from 'react'
-import Header from './Header';
 import styled from "styled-components";
 import { ethereum, interop, scalability, security, socialSecurity, userFriendly } from '../constants/icons';
 import { primaryColor } from '../constants/theme';
+import { breakpoint, device } from '../constants/breakpoints';
 
 const Home = () => {
   return (
     <>
-      <Header />
       <SectionA>
         <ContentWrapper>
           <h2>A wallet that protects U.</h2>
@@ -34,45 +33,41 @@ const Home = () => {
         <ContentWrapper>
           <h3>Features</h3>
           <FeaturesWrapper>
-            <div class="row">
+            <div>
               <div>
-                <div>
-                  <img src={ethereum} alt="Ethereum" />
-                </div>
-                <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+                <img src={ethereum} alt="Ethereum" />
               </div>
-              <div>
-                <div>
-                  <img src={interop} alt="Interop" />
-                </div>
-                <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
-              </div>
-              <div>
-                <div>
-                  <img src={scalability} alt="Scalability" />
-                </div>
-                <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
-              </div>
+              <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
             </div>
-            <div class="row">
+            <div>
               <div>
-                <div>
-                  <img src={security} alt="Security" />
-                </div>
-                <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+                <img src={interop} alt="Interop" />
               </div>
+              <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+            </div>
+            <div>
               <div>
-                <div>
-                  <img src={socialSecurity} alt="Social security" />
-                </div>
-                <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+                <img src={scalability} alt="Scalability" />
               </div>
+              <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+            </div>
+            <div>
               <div>
-                <div>
-                  <img src={userFriendly} alt="User-friendly" />
-                </div>
-                <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+                <img src={security} alt="Security" />
               </div>
+              <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+            </div>
+            <div>
+              <div>
+                <img src={socialSecurity} alt="Social security" />
+              </div>
+              <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
+            </div>
+            <div>
+              <div>
+                <img src={userFriendly} alt="User-friendly" />
+              </div>
+              <p>The Wallet is built on Ethereum's wallet standards and technology, thus allowing ethereum compatibilty among chains.</p>
             </div>
           </FeaturesWrapper>
         </ContentWrapper>
@@ -85,15 +80,20 @@ const Home = () => {
 const ContentWrapper = styled.div`
   max-width: 800px;
   margin: 0 auto;
+
+  ${breakpoint(device.lg)} {
+    max-width: 665px;
+  }
 `;
 
 const FeaturesWrapper = styled.div`
-  .row {
     display: flex;
-    margin-bottom: 40px;
-
+    flex-wrap: wrap;
+    margin: 0 -20px;
+    justify-content: center;
+  
     & > div {
-      max-width: 250px;
+      max-width: 240px;
       margin: 20px;
 
       div {
@@ -111,7 +111,6 @@ const FeaturesWrapper = styled.div`
         margin-top: 8px;
       }
     }
-  }
 `;
 
 const SectionA = styled.div`
