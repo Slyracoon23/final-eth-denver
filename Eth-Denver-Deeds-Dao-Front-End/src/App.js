@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
 import Home from './components/Home';
+import Team from './components/Team';
+import Marketplace from './components/Marketplace';
 import Header from './components/Header';
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const [mobileOpen, setMobileOpen] = useState(true);
-
-  const supportedChainIds = [4];
-  const connectors = {
-    injected: {},
-  };
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const pageStyle = { 
     overflow: mobileOpen ? 'hidden' : null,
@@ -18,16 +15,14 @@ const App = () => {
   };
 
   return (
-    
-    <ThirdwebWeb3Provider
-      supportedChainIds={supportedChainIds}
-      connectors={connectors}
-    >
-      <div style={pageStyle}>
+    <div style={pageStyle}>
       <Header mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
-      <Home />
-      </div>
-    </ThirdwebWeb3Provider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="team" element={<Team />} />
+        <Route path="marketplace" element={<Marketplace />} />
+      </Routes>
+    </div>
   );
 }
 

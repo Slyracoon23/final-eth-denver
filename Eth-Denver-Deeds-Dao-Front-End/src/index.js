@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom';
 import './reset.css';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
+import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
+
+const supportedChainIds = [4];
+const connectors = {
+  injected: {},
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ThirdwebWeb3Provider
+        supportedChainIds={supportedChainIds}
+        connectors={connectors}
+      >
+        <App />
+      </ThirdwebWeb3Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

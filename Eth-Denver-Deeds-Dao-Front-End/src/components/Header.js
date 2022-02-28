@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import { primaryColor, primaryHoverColor } from '../constants/theme';
 import logo from '../assets/logo.png';
@@ -6,18 +6,20 @@ import { hamburger, close } from '../constants/icons';
 import { breakpoint, device } from '../constants/breakpoints';
 import { menu } from '../constants/menu';
 import { black, gray } from '../constants/theme';
+import { Link } from "react-router-dom";
 
 const Header = ({setMobileOpen, mobileOpen}) => {
   const headerStyle = { background: mobileOpen ? gray : 'white' };
+  const menuEntries = menu.map(entry => (
+    <li key={entry.idx}><Link to={entry.url} onClick={ () => setMobileOpen(false) }>{entry.label}</Link></li>
+  ));
 
   return (
     <FullHeader style={headerStyle}>
       <Logo><img src={logo} alt="Logo" /></Logo>
       <DesktopMenu>
         <ul>
-          {menu.map(entry => (
-            <li key={entry.idx}><a href={entry.url}>{entry.label}</a></li>
-          ))}
+          {menuEntries}
         </ul>
       </DesktopMenu>
       <div className="right">
@@ -31,9 +33,7 @@ const Header = ({setMobileOpen, mobileOpen}) => {
               <img src={close} alt="Close Menu" onClick={ () => setMobileOpen(!mobileOpen) } />
               <nav>
                 <ul>
-                  {menu.map(entry => (
-                    <li key={entry.idx}><a href={entry.url}>{entry.label}</a></li>
-                  ))}
+                  {menuEntries}
                 </ul>
               </nav>
             </>

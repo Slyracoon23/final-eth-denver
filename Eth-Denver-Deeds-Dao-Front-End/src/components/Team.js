@@ -7,8 +7,8 @@ const Team = () => {
     <>
       <SectionA>
         <ContentWrapper>
-          <h2>Marketplace</h2>
-          <p>Coming soon...</p>
+          <h2>Who we are</h2>
+          <p>Bunch of crypto enthusiasts. What else.</p>
         </ContentWrapper>
       </SectionA>
     </>
