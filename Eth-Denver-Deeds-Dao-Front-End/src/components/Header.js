@@ -143,7 +143,8 @@ const ConnectWallet = styled.div`
     white-space: nowrap;
     text-transform: uppercase;
     border-radius: 4px;
-    box-shadow: 0 0 0 2px ${primaryColor};
+    background: ${primaryColor};
+    color: white;
     height: 40px;
     padding: 8px;
     cursor: pointer;
@@ -171,7 +172,6 @@ const ConnectWallet = styled.div`
 
       &::before {
         width: 100%;
-        box-shadow: 0 0 0 2px ${primaryHoverColor};
         background: ${primaryHoverColor};
       }
     }
