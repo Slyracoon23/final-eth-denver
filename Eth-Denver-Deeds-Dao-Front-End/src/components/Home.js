@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import { ethereum, interop, scalability, security, socialSecurity, userFriendly } from '../constants/icons';
-import { primaryColor } from '../constants/theme';
+import { primaryColor, black } from '../constants/theme';
 import { breakpoint, device } from '../constants/breakpoints';
 
 const Home = () => {
@@ -120,7 +120,7 @@ const SectionA = styled.div`
 `;
 
 const SectionB = styled.div`
-  background: #111518;
+  background: ${black};
   padding: 40px 40px 70px 40px;
 `;
 

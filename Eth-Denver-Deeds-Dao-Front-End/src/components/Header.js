@@ -133,7 +133,6 @@ const MobileMenu = styled.div`
   }
 `;
 
-
 const ConnectWallet = styled.div`
   display: flex;
   align-items: center;

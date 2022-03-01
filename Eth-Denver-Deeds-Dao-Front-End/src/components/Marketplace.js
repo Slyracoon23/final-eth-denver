@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { breakpoint, device } from '../constants/breakpoints';
 import Slider from "react-slick";
-import { primaryColor, primaryDarkColor, primaryHoverColor, gray } from '../constants/theme';
+import { primaryColor, primaryDarkColor, primaryHoverColor, gray, black } from '../constants/theme';
 
 const Team = () => {
   const slide_img = [
@@ -43,6 +43,10 @@ const Team = () => {
               ))}
             </Slider>
           </SliderWrapper>
+        </ContentWrapper>
+      </SectionA>
+      <SectionBlack>
+        <ContentWrapper>
           <CardsWrapper>
           {slide_img.map((s, idx) => (
             <div key={idx} className="card">
@@ -53,11 +57,16 @@ const Team = () => {
           ))}
           </CardsWrapper>
         </ContentWrapper>
-      </SectionA>
+      </SectionBlack>
     </>
     
   )
 }
+
+const SectionBlack = styled.div`
+  background: ${black};
+  padding: 40px 40px 70px 40px;
+`;
 
 const CardsWrapper = styled.div`
   display: flex;
@@ -66,13 +75,13 @@ const CardsWrapper = styled.div`
 
   .card {
     padding: 12px;
-    background: linear-gradient(0, ${gray}, white);
+    background: linear-gradient(0, #30363a, ${black});
     border-radius: 4px;
     border-bottom-left-radius: 12px;
     border-top-right-radius: 12px;
     margin: 12px;
     max-width: 220px;
-    box-shadow: 0 0 0 1px ${primaryColor};
+    box-shadow: 0 0 0 2px ${primaryColor};
 
     div {
       display: flex;
@@ -175,12 +184,7 @@ const ContentWrapper = styled.div`
 const SectionA = styled.div`
   min-height: 100px;
   padding: 40px 40px 70px 40px;
-  color: black;
-`;
-
-const SectionB = styled.div`
-  background: #111518;
-  padding: 40px 40px 70px 40px;
+  color: ${black};
 `;
 
 
