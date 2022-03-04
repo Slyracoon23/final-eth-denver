@@ -75,13 +75,34 @@ const DesktopMenu = styled.nav`
 
       a {
         height: 100px;
-        color: ${primaryColor};
-        border-bottom: 2px solid transparent;
-        padding: 0 12px;
+        color: #65bee5;
+        border-bottom: 4px solid transparent;
+        padding: 0 12px 2px 12px;
+        position: relative;
+        border-radius: 2px;
+        margin-bottom: 6px;
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 4px;
+          left: 0;
+          bottom: -4px;
+          transform: scaleX(0);
+          transform-origin: 0 0;
+          transition: all .5s;
+          background: #8656ef;
+          border-radius: 2px;
+      }
 
         &:hover {
-          color: ${primaryHoverColor};
-          border-bottom: 2px solid ${primaryHoverColor};
+          color: #945cd1;
+          border-bottom-color: #d123dd;
+
+          &:after {
+            transform: scaleX(1);
+          }
         }
       }
     }
