@@ -20,29 +20,32 @@ const Header = ({setMobileOpen, mobileOpen}) => {
   return (
     <FullHeader style={headerStyle}>
       <Logo><img src={logo} alt="Logo" /></Logo>
-      <DesktopMenu>
-        <ul>
-          {menuEntries}
-        </ul>
-      </DesktopMenu>
+      {!isMobile && (
+        <DesktopMenu>
+          <ul>
+            {menuEntries}
+          </ul>
+        </DesktopMenu>
+      )}
       <div className="right">
         <ConnectWallet>
-          {isMobile}
           <button><span>Connect Wallet</span></button>
         </ConnectWallet>
-        <MobileMenu>
-          {!mobileOpen && isMobile && <img src={hamburger} alt="Menu" onClick={ () => setMobileOpen(!mobileOpen) } />}
-          {mobileOpen && isMobile && (
-            <>
-              <img src={close} alt="Close Menu" onClick={ () => setMobileOpen(!mobileOpen) } />
-              <nav>
-                <ul>
-                  {menuEntries}
-                </ul>
-              </nav>
-            </>
+        {isMobile && (
+          <MobileMenu>
+            {!mobileOpen && <img src={hamburger} alt="Menu" onClick={ () => setMobileOpen(!mobileOpen) } />}
+            {mobileOpen && (
+              <>
+                <img src={close} alt="Close Menu" onClick={ () => setMobileOpen(!mobileOpen) } />
+                <nav>
+                  <ul>
+                    {menuEntries}
+                  </ul>
+                </nav>
+              </>
+            )}
+          </MobileMenu>
           )}
-        </MobileMenu>
       </div>
     </FullHeader>
   )
@@ -54,10 +57,6 @@ const DesktopMenu = styled.nav`
   min-width: 0;
   width: 100%;
   margin: 0 20px;
-
-  ${breakpoint(device.md)} {
-    display: none;
-  }
 
   ul {
     display: flex;
@@ -74,13 +73,14 @@ const DesktopMenu = styled.nav`
       }
 
       a {
-        height: 100px;
-        color: #65bee5;
+        height: 94px;
+        color: #6fc5fe;
         border-bottom: 4px solid transparent;
         padding: 0 12px 2px 12px;
         position: relative;
         border-radius: 2px;
-        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
 
         &::after {
           position: absolute;
@@ -234,10 +234,13 @@ const Logo = styled.div`
 
 const FullHeader = styled.div`
   background: white;
-  box-shadow: 0px 10px 25px -3px rgba(43, 61, 80, 0.1);
+  box-shadow: -1px 4px 25px 6px rgb(43 61 80 / 48%);
   display: flex;
   padding: 0 20px;
-  height: 100px;
+  height: 92px;
+  position: relative;
+  z-index: 1;
+  border-bottom: 4px solid #6fc5fe;
 
   ${breakpoint(device.md)} {
     justify-content: space-between;
