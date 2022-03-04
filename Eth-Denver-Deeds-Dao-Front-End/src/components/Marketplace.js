@@ -149,6 +149,9 @@ const SliderWrapper = styled.div`
 
     img {
       max-width: 60%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 20px;
     }
   }
 

@@ -5,11 +5,11 @@ import logo from '../assets/logo.png';
 import { hamburger, close } from '../constants/icons';
 import { breakpoint, device } from '../constants/breakpoints';
 import { menu } from '../constants/menu';
-import { black, gray } from '../constants/theme';
+import blockchainBg from '../assets/blockchain-bg.jpg';
 import { Link } from "react-router-dom";
 
 const Header = ({setMobileOpen, mobileOpen}) => {
-  const headerStyle = { background: mobileOpen ? gray : 'white' };
+  const headerStyle = { background: 'white' };
   const menuEntries = menu.map(entry => (
     <li key={entry.idx}><Link to={entry.url} onClick={ () => setMobileOpen(false) }>{entry.label}</Link></li>
   ));
@@ -108,8 +108,25 @@ const MobileMenu = styled.div`
     left: 0;
     top: 100px;
     bottom: 0;
-    background: ${gray};
+    background:
+      linear-gradient(45deg, rgb(0 94 175 / 78%), rgb(165 74 221 / 52%)), 
+      linear-gradient(318deg, #f1558a, transparent), 
+      black;
     padding: 60px 40px 90px 40px;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='93' height='93'%3E%3Cpath stroke='none' fill='%23ffffff08' d='M41.5 8.3867513459481a10 10 0 0 1 10 0l25.507041555162 14.726497308104a10 10 0 0 1 5 8.6602540378444l0 29.452994616207a10 10 0 0 1 -5 8.6602540378444l-25.507041555162 14.726497308104a10 10 0 0 1 -10 0l-25.507041555162 -14.726497308104a10 10 0 0 1 -5 -8.6602540378444l0 -29.452994616207a10 10 0 0 1 5 -8.6602540378444'%3E%3C/path%3E%3C/svg%3E");
+      background-image: url(${blockchainBg});
+      opacity: 0.05;
+      pointer-events: none;
+    }
 
     ul {
       width: 100%;
@@ -122,10 +139,14 @@ const MobileMenu = styled.div`
 
         a {
           font-size: 30px;
-          color ${black};
+          background: -webkit-linear-gradient(54deg,#55ceffb3,#f96df5);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
 
           &:hover {
-            color: ${primaryHoverColor};
+            background: -webkit-linear-gradient(53deg,#39c9f5,#ffc6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
         }
       }
@@ -138,16 +159,16 @@ const ConnectWallet = styled.div`
   align-items: center;
 
   button {
-    color: ${primaryColor};
+    color: white;
     white-space: nowrap;
     text-transform: uppercase;
     border-radius: 4px;
-    background: ${primaryColor};
-    color: white;
     height: 40px;
     padding: 8px;
     cursor: pointer;
     position: relative;
+    background: #aa48a7;
+    box-shadow: 0 5px 20px -2px rgb(98 12 163 / 50%);
 
     span {
       position: relative;
@@ -171,7 +192,8 @@ const ConnectWallet = styled.div`
 
       &::before {
         width: 100%;
-        background: ${primaryHoverColor};
+        background: #30499275;
+        box-shadow: 0 5px 20px -2px rgb(97 25 163 / 48%);
       }
     }
   }
