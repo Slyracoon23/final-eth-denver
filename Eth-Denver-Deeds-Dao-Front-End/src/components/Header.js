@@ -7,8 +7,11 @@ import { breakpoint, device } from '../constants/breakpoints';
 import { menu } from '../constants/menu';
 import blockchainBg from '../assets/blockchain-bg.jpg';
 import { Link } from "react-router-dom";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Header = ({setMobileOpen, mobileOpen}) => {
+  const isMobile = useMediaQuery(breakpoint(device.md));
+  console.log(isMobile, breakpoint(device.sm))
   const headerStyle = { background: 'white' };
   const menuEntries = menu.map(entry => (
     <li key={entry.idx}><Link to={entry.url} onClick={ () => setMobileOpen(false) }>{entry.label}</Link></li>
@@ -24,11 +27,12 @@ const Header = ({setMobileOpen, mobileOpen}) => {
       </DesktopMenu>
       <div className="right">
         <ConnectWallet>
+          {isMobile}
           <button><span>Connect Wallet</span></button>
         </ConnectWallet>
         <MobileMenu>
-          {!mobileOpen && <img src={hamburger} alt="Menu" onClick={ () => setMobileOpen(!mobileOpen) } />}
-          {mobileOpen && (
+          {!mobileOpen && isMobile && <img src={hamburger} alt="Menu" onClick={ () => setMobileOpen(!mobileOpen) } />}
+          {mobileOpen && isMobile && (
             <>
               <img src={close} alt="Close Menu" onClick={ () => setMobileOpen(!mobileOpen) } />
               <nav>
