@@ -4,10 +4,9 @@ import styled from "styled-components";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { SectionLight } from '../shared/Layout';
 import logo from '../assets/logo.png';
-import blockchainBg from '../assets/blockchain-bg.jpg';
 import { breakpoint, device } from '../constants/breakpoints';
 import { menu, hamburgerIcon, closeIcon, menuHeight } from '../constants/menu';
-import { primaryColor, secondaryColor, secondaryDarkerColor } from '../constants/theme';
+import { primaryColor, gray, secondaryColor, thirdColorLight, secondaryColorDark, thirdColor, thirdColorHovered } from '../constants/theme';
 
 const Header = ({setMobileOpen, mobileOpen}) => {
   const isMobile = useMediaQuery(breakpoint(device.md));
@@ -97,13 +96,13 @@ const DesktopMenu = styled.nav`
           transform: scaleX(0);
           transform-origin: 0 0;
           transition: all .5s;
-          background: #8656ef;
+          background: ${thirdColorLight};
           border-radius: 2px;
       }
 
         &:hover {
           color: ${secondaryColor};
-          border-color: ${secondaryDarkerColor};
+          border-color: ${secondaryColorDark};
 
           &:after {
             transform: scaleX(1);
@@ -123,7 +122,7 @@ const MobileMenu = styled.div`
 
   & > div {
     border-radius: 50%;
-    background: #f1f1f1;
+    background: ${gray};
     padding: 12px;
 
     img {
@@ -192,7 +191,7 @@ const ConnectWallet = styled.div`
     padding: 8px;
     cursor: pointer;
     position: relative;
-    background: #aa48a7;
+    background: ${thirdColor};
     box-shadow: 0 5px 20px -2px rgb(98 12 163 / 50%);
 
     span {
@@ -217,8 +216,8 @@ const ConnectWallet = styled.div`
 
       &::before {
         width: 100%;
-        background: #30499275;
-        box-shadow: 0 5px 20px -2px rgb(97 25 163 / 48%);
+        background: ${thirdColorHovered};
+        box-shadow: 0 5px 20px -2px #6119a37a;
       }
     }
   }

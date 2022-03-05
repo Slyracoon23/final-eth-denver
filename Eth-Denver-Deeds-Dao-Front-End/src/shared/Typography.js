@@ -7,7 +7,7 @@ const H2Light = ({children}) => {
     margin-bottom: 20px;
     line-height: 1.25;
     font-weight: bold;
-    background: -webkit-linear-gradient(257deg,#05b4ff,#9baeff);
+    background: -webkit-linear-gradient(0,#55ceff,#f675ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   `;
@@ -25,7 +25,7 @@ const H2Dark = ({children}) => {
     margin-bottom: 20px;
     line-height: 1.25;
     font-weight: bold;
-    background: -webkit-linear-gradient(257deg,#05b4ff,#9baeff);
+    background: -webkit-linear-gradient(11deg,#c546bad9,#ab9fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   `;
@@ -38,7 +38,7 @@ const H2Dark = ({children}) => {
 }
 
 const H3Light = ({children}) => {
-  const StyledH3 = styled.h2`
+  const StyledH3 = styled.h3`
     font-size: 45px;
     line-height: 1.25;
     margin-bottom: 20px;
@@ -55,7 +55,7 @@ const H3Light = ({children}) => {
 }
 
 const H3Dark = ({children}) => {
-  const StyledH3 = styled.h2`
+  const StyledH3 = styled.h3`
     font-size: 45px;
     line-height: 1.25;
     margin-bottom: 20px;

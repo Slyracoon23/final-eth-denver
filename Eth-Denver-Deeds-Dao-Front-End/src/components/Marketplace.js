@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { ContentWrapper, SectionLight, SectionDark } from '../shared/Layout';
 import { H2Light } from '../shared/Typography';
-import { primaryColor, primaryDarkColor, primaryHoverColor, black } from '../constants/theme';
+import { primaryColor, primaryColorDark, primaryColorHovered, black } from '../constants/theme';
 import { defaultImages } from '../constants/mockup-data';
 
 const Marketplace = () => {
@@ -39,7 +39,7 @@ const CardsWrapper = styled.div`
 
   .card {
     padding: 24px;
-    background: linear-gradient(0, #30363a, ${black});
+    background: linear-gradient(0,#a152ab7a,transparent);
     border-radius: 4px;
     border-bottom-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -64,7 +64,7 @@ const CardsWrapper = styled.div`
       margin-top: 8px;
       font-size: 14px;
       line-height: 1.25em;
-      color: ${primaryDarkColor};
+      color: ${primaryColorDark};
     }
 
     .button-wrapper {
@@ -100,7 +100,7 @@ const CardsWrapper = styled.div`
         &:hover {
           &::before {
             width: 100%;
-            background: ${primaryHoverColor};
+            background: ${primaryColorHovered};
           }
         }
       }
