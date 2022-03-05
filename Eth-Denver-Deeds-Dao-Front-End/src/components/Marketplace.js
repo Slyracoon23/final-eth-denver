@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { ContentWrapper, SectionLight, SectionDark } from '../shared/Layout';
 import { H2Light } from '../shared/Typography';
-import { primaryColor, primaryColorDark, primaryColorHovered, black } from '../constants/theme';
+import { primaryColor, primaryColorDark, primaryColorHovered } from '../constants/theme';
 import { defaultImages } from '../constants/mockup-data';
 
 const Marketplace = () => {
