@@ -7,12 +7,25 @@ import slyracoon23 from '../assets/members/slyracoon23.png';
 
 const Team = () => {
   const members = [
-    { idx: 0, name: 'SlyRacoon23', function: 'Backend', avatar: pwe_eth },
-    { idx: 2, name: 'pwe.eth', function: 'Frontend', avatar: slyracoon23 },
+    { idx: 0, name: 'SlyRacoon23', function: 'Backend', avatar: slyracoon23 },
+    { idx: 2, name: 'pwe.eth', function: 'Frontend', avatar: pwe_eth },
     { idx: 1, name: 'Favian.eth', function: 'Misc', avatar: '' },
     { idx: 3, name: 'lyons800.eth', function: 'UX', avatar: '' }
+  ];
 
-  ]
+  const centeredAndCover = 'center center / cover';
+  const radialGradient = 'radial-gradient(circle at left top, rgb(255 0 243) 0%, rgb(0 178 255)';
+
+  const onHoverImage = (event, avatarUrl) => {
+    event.target.style.background = 'url(' + avatarUrl + ') ' 
+      + centeredAndCover;
+  }
+
+  const onUnHoverImage = (event, avatarUrl) => {
+    event.target.style.background = 'url(' + avatarUrl + ') ' 
+      + centeredAndCover + ';' + radialGradient;
+  }
+
   return (
     <>
       <SectionLight>
@@ -25,8 +38,13 @@ const Team = () => {
               <li key={m.idx}>
                 <div
                   className="img"
-                  src={m.avatar} 
-                  style={{background: 'url(' + m.avatar + ') center center / cover, radial-gradient(circle at left top, rgba(227, 0, 239, 0) 0%, rgba(234, 0, 187, 0.5) 100%)' }}
+                  src={m.avatar}
+                  onMouseEnter={e => onHoverImage(e, m.avatar)}
+                  onMouseLeave={e => onUnHoverImage(e, m.avatar)}
+                  style={{
+                    background: 'url(' + m.avatar +  ') ' 
+                      + centeredAndCover + ';' + radialGradient,
+                   }}
                   alt={'Avatar of ' + m.name} 
                 />
                 <h4>{m.name}</h4>
@@ -42,18 +60,37 @@ const Team = () => {
 
 const MembersWrapper = styled.ul`
   display: flex;
-  margin: 0 -12px;
+  margin: 12px -12px 0 -12px;
 
   li {
     padding: 12px;
-  }
 
-  .img {
-    padding: 12px;
-    background-blend-mode: multiply;
-    width: 200px;
-    height: 200px;
-    margin-bottom: 12px;
+    .img {
+      border-radius: 16px;
+      padding: 12px;
+      background-blend-mode: luminosity;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 12px;
+      transition: all 0.5s ease;
+      border: 4px solid #dd5ae1;
+      background-position-x: center;
+      background-position-y: center;
+      background-size: cover;
+
+      &:hover {
+        border-radius: 0;
+        transform: scale(1.1);
+        margin-top: -8px;
+        transform-origin: center;
+        margin-bottom: 20px;
+        border: 4px solid white;
+      }
+    }
+
+    h4 {
+      font-weight: bold;
+    }
   }
 `;
 
