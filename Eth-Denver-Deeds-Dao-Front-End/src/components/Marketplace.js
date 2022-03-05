@@ -1,44 +1,22 @@
 import React from 'react';
 import styled from "styled-components";
-import { breakpoint, device } from '../constants/breakpoints';
-import Slider from "react-slick";
-import { primaryColor, primaryDarkColor, primaryHoverColor, gray, black } from '../constants/theme';
+import { ContentWrapper, SectionLight, SectionDark } from '../shared/Layout';
+import { H2Light } from '../shared/Typography';
+import { primaryColor, primaryDarkColor, primaryHoverColor, black } from '../constants/theme';
+import { defaultImages } from '../constants/mockup-data';
 
 const Marketplace = () => {
-  const slide_img = [
-    "https://swiperjs.com/demos/images/nature-1.jpg",
-    "https://swiperjs.com/demos/images/nature-2.jpg",
-    "https://swiperjs.com/demos/images/nature-3.jpg",
-    "https://swiperjs.com/demos/images/nature-4.jpg",
-    "https://swiperjs.com/demos/images/nature-5.jpg",
-    "https://swiperjs.com/demos/images/nature-6.jpg",
-    "https://swiperjs.com/demos/images/nature-7.jpg",
-    "https://swiperjs.com/demos/images/nature-8.jpg",
-    "https://swiperjs.com/demos/images/nature-9.jpg",
-  ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    // autoplay: true,
-    arrows: true,
-  };
-
   return (
     <>
-      <SectionA>
+      <SectionLight>
         <ContentWrapper>
-          <h2>Marketplace</h2>
+          <H2Light>Marketplace</H2Light>
           <p>An overview of all NFTs and securities in the DeedsDAO ecosystem.</p>
-        </ContentWrapper>
-      </SectionA>
-      <SectionBlack>
-        <ContentWrapper>
+          </ContentWrapper>
+        </SectionLight>
+        <SectionDark>
           <CardsWrapper>
-          {slide_img.map((s, idx) => (
+          {defaultImages.map((s, idx) => (
             <div key={idx} className="card">
               <div><img src={s} alt="" /></div>
               <h4>The Graph</h4>
@@ -47,22 +25,17 @@ const Marketplace = () => {
             </div>
           ))}
           </CardsWrapper>
-        </ContentWrapper>
-      </SectionBlack>
+      </SectionDark>
     </>
     
   )
 }
 
-const SectionBlack = styled.div`
-  background: ${black};
-  padding: 40px 40px 70px 40px;
-`;
-
 const CardsWrapper = styled.div`
   display: flex;
-  margin: 60px -12px 0 -12px;
+  margin: 0 auto;
   flex-wrap: wrap;
+  justify-content: center;
 
   .card {
     padding: 24px;
@@ -71,7 +44,7 @@ const CardsWrapper = styled.div`
     border-bottom-left-radius: 12px;
     border-top-right-radius: 12px;
     margin: 12px;
-    max-width: 220px;
+    max-width: 240px;
     box-shadow: 0 0 0 2px ${primaryColor};
 
     div {
@@ -134,21 +107,5 @@ const CardsWrapper = styled.div`
     }
   }
 `;
-
-const ContentWrapper = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-
-  ${breakpoint(device.lg)} {
-    max-width: 665px;
-  }
-`;
-
-const SectionA = styled.div`
-  min-height: 100px;
-  padding: 40px 40px 70px 40px;
-  color: ${black};
-`;
-
 
 export default Marketplace;

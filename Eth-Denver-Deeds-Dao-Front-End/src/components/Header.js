@@ -1,12 +1,13 @@
 import React from 'react';
-import styled from "styled-components";
-import logo from '../assets/logo.png';
-import { hamburger, close } from '../constants/icons';
-import { breakpoint, device } from '../constants/breakpoints';
-import { menu } from '../constants/menu';
-import blockchainBg from '../assets/blockchain-bg.jpg';
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { SectionLight } from '../shared/Layout';
+import logo from '../assets/logo.png';
+import blockchainBg from '../assets/blockchain-bg.jpg';
+import { breakpoint, device } from '../constants/breakpoints';
+import { menu, hamburgerIcon, closeIcon, menuHeight } from '../constants/menu';
+import { primaryColor, secondaryColor, secondaryDarkerColor } from '../constants/theme';
 
 const Header = ({setMobileOpen, mobileOpen}) => {
   const isMobile = useMediaQuery(breakpoint(device.md));
@@ -30,14 +31,22 @@ const Header = ({setMobileOpen, mobileOpen}) => {
         </ConnectWallet>
         {isMobile && (
           <MobileMenu>
-            {!mobileOpen && <img src={hamburger} alt="Menu" onClick={ () => setMobileOpen(!mobileOpen) } />}
+            {!mobileOpen && (
+              <div onClick={ () => setMobileOpen(true) }>
+                <img src={hamburgerIcon} alt="Open Menu"  />
+              </div>
+            )}
             {mobileOpen && (
               <>
-                <img src={close} alt="Close Menu" onClick={ () => setMobileOpen(!mobileOpen) } />
+                <div onClick={ () => setMobileOpen(false) }>
+                  <img src={closeIcon} alt="Close Menu"  />
+                </div>
                 <nav>
-                  <ul>
-                    {menuEntries}
-                  </ul>
+                  <SectionLight>
+                    <ul>
+                      {menuEntries}
+                    </ul>
+                  </SectionLight>
                 </nav>
               </>
             )}
@@ -61,8 +70,8 @@ const DesktopMenu = styled.nav`
     li {
       display: flex;
       justify-content: center;
-      height: 100px;
-      line-height: 100px;
+      height: ${menuHeight};
+      line-height: ${menuHeight};
       align-items: center;
 
       &:not(:last-child) {
@@ -70,10 +79,9 @@ const DesktopMenu = styled.nav`
       }
 
       a {
-        height: 94px;
-        color: #6fc5fe;
+        color: ${primaryColor};
         border-bottom: 4px solid transparent;
-        padding: 0 12px 2px 12px;
+        padding: 0 12px;
         position: relative;
         border-radius: 2px;
         text-transform: uppercase;
@@ -94,8 +102,8 @@ const DesktopMenu = styled.nav`
       }
 
         &:hover {
-          color: #945cd1;
-          border-bottom-color: #d123dd;
+          color: ${secondaryColor};
+          border-color: ${secondaryDarkerColor};
 
           &:after {
             transform: scaleX(1);
@@ -113,41 +121,36 @@ const MobileMenu = styled.div`
   margin-left: 20px;
   cursor: pointer;
 
-  img {
-    display: none;
-    padding: 20px;
+  & > div {
+    border-radius: 50%;
+    background: #f1f1f1;
+    padding: 12px;
 
-    ${breakpoint(device.md)} {
-      display: inline;
+    img {
+      display: none;
+      width: 16px;
+
+      ${breakpoint(device.md)} {
+        display: inline;
+      }
     }
   }
 
   nav {
     display: flex;
     justify-content: center;
-    right: 0;
     position: fixed;
+    top: ${menuHeight};
+    right: 0;
     left: 0;
-    top: 100px;
     bottom: 0;
-    background:
-      linear-gradient(45deg, rgb(0 94 175 / 78%), rgb(165 74 221 / 52%)), 
-      linear-gradient(318deg, #f1558a, transparent), 
-      black;
-    padding: 60px 40px 90px 40px;
-    z-index: 1;
 
-    &::after {
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
+    & > div {
+      position: fixed;
+      top: ${menuHeight};
+      right: 0;
       left: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='93' height='93'%3E%3Cpath stroke='none' fill='%23ffffff08' d='M41.5 8.3867513459481a10 10 0 0 1 10 0l25.507041555162 14.726497308104a10 10 0 0 1 5 8.6602540378444l0 29.452994616207a10 10 0 0 1 -5 8.6602540378444l-25.507041555162 14.726497308104a10 10 0 0 1 -10 0l-25.507041555162 -14.726497308104a10 10 0 0 1 -5 -8.6602540378444l0 -29.452994616207a10 10 0 0 1 5 -8.6602540378444'%3E%3C/path%3E%3C/svg%3E");
-      background-image: url(${blockchainBg});
-      opacity: 0.05;
-      pointer-events: none;
+      bottom: 0;
     }
 
     ul {
@@ -234,7 +237,7 @@ const FullHeader = styled.div`
   box-shadow: -1px 4px 25px 6px rgb(43 61 80 / 48%);
   display: flex;
   padding: 0 20px;
-  height: 92px;
+  height: ${menuHeight};
   position: relative;
   z-index: 1;
   border-bottom: 4px solid #6fc5fe;

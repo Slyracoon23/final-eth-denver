@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
-import './reset.css';
 import './scss/styles.scss';
 
 const supportedChainIds = [4];

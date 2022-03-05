@@ -1,21 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import Slider from "react-slick";
-import { primaryColor, primaryDarkColor, primaryHoverColor, gray, black } from '../constants/theme';
+import { primaryColor } from '../constants/theme';
+import { defaultImages } from '../constants/mockup-data';
 
-const Slider = ({images}) => {
-  const defaultImages = [
-    "https://swiperjs.com/demos/images/nature-1.jpg",
-    "https://swiperjs.com/demos/images/nature-2.jpg",
-    "https://swiperjs.com/demos/images/nature-3.jpg",
-    "https://swiperjs.com/demos/images/nature-4.jpg",
-    "https://swiperjs.com/demos/images/nature-5.jpg",
-    "https://swiperjs.com/demos/images/nature-6.jpg",
-    "https://swiperjs.com/demos/images/nature-7.jpg",
-    "https://swiperjs.com/demos/images/nature-8.jpg",
-    "https://swiperjs.com/demos/images/nature-9.jpg",
-  ];
-
+const SlickSlider = ({images}) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -78,4 +67,4 @@ const SliderWrapper = styled.div`
 `;
 
 
-export default Slider;
+export default SlickSlider;
