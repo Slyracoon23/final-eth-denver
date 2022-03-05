@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import { primaryColor, primaryHoverColor } from '../constants/theme';
 import logo from '../assets/logo.png';
 import { hamburger, close } from '../constants/icons';
 import { breakpoint, device } from '../constants/breakpoints';
@@ -11,14 +10,12 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Header = ({setMobileOpen, mobileOpen}) => {
   const isMobile = useMediaQuery(breakpoint(device.md));
-  console.log(isMobile, breakpoint(device.sm))
-  const headerStyle = { background: 'white' };
   const menuEntries = menu.map(entry => (
     <li key={entry.idx}><Link to={entry.url} onClick={ () => setMobileOpen(false) }>{entry.label}</Link></li>
   ));
 
   return (
-    <FullHeader style={headerStyle}>
+    <FullHeader>
       <Logo><img src={logo} alt="Logo" /></Logo>
       {!isMobile && (
         <DesktopMenu>

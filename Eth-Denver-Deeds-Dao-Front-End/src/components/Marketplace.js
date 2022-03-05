@@ -4,7 +4,7 @@ import { breakpoint, device } from '../constants/breakpoints';
 import Slider from "react-slick";
 import { primaryColor, primaryDarkColor, primaryHoverColor, gray, black } from '../constants/theme';
 
-const Team = () => {
+const Marketplace = () => {
   const slide_img = [
     "https://swiperjs.com/demos/images/nature-1.jpg",
     "https://swiperjs.com/demos/images/nature-2.jpg",
@@ -32,17 +32,7 @@ const Team = () => {
       <SectionA>
         <ContentWrapper>
           <h2>Marketplace</h2>
-          <SliderWrapper>
-            <Slider {...settings}>
-              {slide_img.map((s, idx) => (
-                <div key={idx}>
-                  <div className="slide-wrapper">
-                    <img src={s} alt="" />
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </SliderWrapper>
+          <p>An overview of all NFTs and securities in the DeedsDAO ecosystem.</p>
         </ContentWrapper>
       </SectionA>
       <SectionBlack>
@@ -51,7 +41,8 @@ const Team = () => {
           {slide_img.map((s, idx) => (
             <div key={idx} className="card">
               <div><img src={s} alt="" /></div>
-              <p>Description of an awesome product.</p>
+              <h4>The Graph</h4>
+              <p>The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can build and publish open APIs, called subgraphs, making data easily accessible.</p>
               <div className="button-wrapper"><button><span>99$</span></button></div>
             </div>
           ))}
@@ -70,11 +61,11 @@ const SectionBlack = styled.div`
 
 const CardsWrapper = styled.div`
   display: flex;
-  margin: 60px -20px 0 -20px;
+  margin: 60px -12px 0 -12px;
   flex-wrap: wrap;
 
   .card {
-    padding: 12px;
+    padding: 24px;
     background: linear-gradient(0, #30363a, ${black});
     border-radius: 4px;
     border-bottom-left-radius: 12px;
@@ -88,13 +79,18 @@ const CardsWrapper = styled.div`
       justify-content: center;
       
       img {
-        width: 90px;
+        width: 64px;
       }
     }
 
-    p {
+    h4 {
       margin-top: 16px;
-      font-size: 13px;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.25em;
       color: ${primaryDarkColor};
     }
 
@@ -139,42 +135,6 @@ const CardsWrapper = styled.div`
   }
 `;
 
-const SliderWrapper = styled.div`
-  max-width: 60%;
-  margin: 0 auto;
-
-  .slide-wrapper {
-    display: flex;
-    justify-content: center;
-
-    img {
-      max-width: 60%;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(6px);
-      padding: 20px;
-    }
-  }
-
-  .slick-next, .slick-prev {
-    width: unset;
-    height: unset;
-
-    &::before {
-      font-size: 40px;
-      font-family: sans-serif;
-      color: ${primaryColor};
-    }
-  }
-
-  .slick-prev:before {
-    content: '‹';
-  }
-
-  .slick-next:before {
-    content: '›';
-  }
-`;
-
 const ContentWrapper = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -191,4 +151,4 @@ const SectionA = styled.div`
 `;
 
 
-export default Team;
+export default Marketplace;

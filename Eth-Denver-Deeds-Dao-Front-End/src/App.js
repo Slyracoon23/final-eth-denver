@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import Home from './components/Home';
 import Team from './components/Team';
 import Marketplace from './components/Marketplace';

@@ -157,13 +157,13 @@ const SectionB = styled.div`
     }
 
   h3 {
-    background: -webkit-linear-gradient(11deg,#c546bad9,#ab9fff);
+    background: -webkit-linear-gradient(24deg,#7e51c7d9,#d573ed);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   p { 
-    color: #c365c0;
+    color: #9962ccdb;
   }
 `;
 
