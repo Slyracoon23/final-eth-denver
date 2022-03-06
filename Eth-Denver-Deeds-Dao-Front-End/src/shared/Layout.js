@@ -6,6 +6,7 @@ import { breakpoint, device } from '../constants/breakpoints';
 const SectionLight = ({children}) => {
   const Wrapper = styled.section`
     min-height: 100px;
+    width: 100%;
     padding: 40px 40px 70px 40px;
     color: #51c1e3;
     background: 
@@ -39,6 +40,7 @@ const SectionDark = ({children}) => {
   const Wrapper =  styled.section`
     background: linear-gradient(79deg, #020d26, #370438);
     padding: 40px 40px 70px 40px;
+    width: 100%;
     position: relative;
 
     &::after {
