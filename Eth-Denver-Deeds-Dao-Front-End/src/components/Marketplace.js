@@ -43,9 +43,7 @@ const CardsWrapper = styled.div`
   .card {
     padding: 24px;
     background: linear-gradient(0,#e55be15c,transparent);
-    border-radius: 4px;
-    border-bottom-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-radius: 12px;
     margin: 12px;
     max-width: 240px;
     transition: all 0.3s ease;
@@ -60,15 +58,16 @@ const CardsWrapper = styled.div`
       justify-content: center;
       
       .img-wrapper {
+        padding: 10px;
+        border-radius: 10px;
+        background: rgb(255 255 255 / 5%);
+
         .img {
+          border-radius: 4px;
           width: 86px;
           height: 60px;
           background-size: cover;
         }
-        
-        padding: 10px;
-        border-radius: 10px;
-        background: rgb(255 255 255 / 5%);
       }
     }
 

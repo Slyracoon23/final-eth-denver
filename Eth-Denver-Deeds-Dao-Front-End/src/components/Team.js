@@ -62,7 +62,7 @@ const MembersWrapper = styled.ul`
     padding: 12px;
 
     .img {
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 12px;
       background-blend-mode: luminosity;
       width: 200px;
