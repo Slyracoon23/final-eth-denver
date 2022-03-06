@@ -204,7 +204,8 @@ const ConnectWallet = styled.div`
       top: 0;
       left: 0;
       width: 0;
-      border-radius: 2px;
+      border-radius: 4px;
+      border: 3px solid transparent;
       height: 100%;
       content: '';
       background: transparent;
@@ -218,6 +219,7 @@ const ConnectWallet = styled.div`
         width: 100%;
         background: ${thirdColorHovered};
         box-shadow: 0 5px 20px -2px #6119a37a;
+        border-color: ${thirdColor};
       }
     }
   }

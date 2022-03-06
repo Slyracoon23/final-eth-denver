@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { ContentWrapper, SectionLight, SectionDark } from '../shared/Layout';
 import { H2Light } from '../shared/Typography';
-import { primaryColor, primaryColorDark, primaryColorHovered } from '../constants/theme';
+import { primaryColor } from '../constants/theme';
 import { defaultImages } from '../constants/mockup-data';
 
 const Marketplace = () => {
@@ -47,6 +47,10 @@ const CardsWrapper = styled.div`
     max-width: 240px;
     box-shadow: 0 0 0 2px ${primaryColor};
 
+    &:hover {
+      box-shadow: 0 0 0 4px ${primaryColor};
+    }
+
     div {
       display: flex;
       justify-content: center;
@@ -64,7 +68,7 @@ const CardsWrapper = styled.div`
       margin: 8px 0 24px 0;
       font-size: 14px;
       line-height: 1.25em;
-      color: #9864c9db;
+      color: #ad7fd9db;
     }
 
     .button-wrapper {
@@ -86,11 +90,12 @@ const CardsWrapper = styled.div`
           top: 0;
           left: 0;
           width: 0;
-          border-radius: 2px;
+          border-radius: 4px;
+          border: 2px solid transparent;
           height: 100%;
           content: '';
           background: transparent;
-          transition: all 0.3s ease;
+          transition: all 0.5s ease;
         }
 
         span {
@@ -100,7 +105,8 @@ const CardsWrapper = styled.div`
         &:hover {
           &::before {
             width: 100%;
-            background: ${primaryColorHovered};
+            border-color: ${primaryColor};
+            background: #3a113f;
           }
         }
       }

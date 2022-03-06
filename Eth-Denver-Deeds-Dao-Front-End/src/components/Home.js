@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import { ethereum, interop, scalability, security, socialSecurity, userFriendly } from '../constants/icons';
-import { primaryColor, black } from '../constants/theme';
+import { primaryColor } from '../constants/theme';
 import { ContentWrapper, SectionLight, SectionDark } from '../shared/Layout';
 import { H2Light, H3Light, H3Dark } from '../shared/Typography';
 
