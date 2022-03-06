@@ -4,7 +4,7 @@ import blockchainBg from '../assets/blockchain-bg.jpg';
 import { breakpoint, device } from '../constants/breakpoints';
 
 const SectionLight = ({children}) => {
-  const Wrapper = styled.div`
+  const Wrapper = styled.section`
     min-height: 100px;
     padding: 40px 40px 70px 40px;
     color: #51c1e3;
@@ -36,7 +36,7 @@ const SectionLight = ({children}) => {
 }
 
 const SectionDark = ({children}) => {
-  const Wrapper =  styled.div`
+  const Wrapper =  styled.section`
     background: linear-gradient(79deg, #020d26, #370438);
     padding: 40px 40px 70px 40px;
     position: relative;

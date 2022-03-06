@@ -7,7 +7,7 @@ import { H2Light, H3Light, H3Dark } from '../shared/Typography';
 
 const Home = () => {
   return (
-    <>
+    <main>
       <SectionLight>
         <ContentWrapper>
           <H2Light>A wallet that protects U.</H2Light>
@@ -73,7 +73,7 @@ const Home = () => {
           </FeaturesWrapper>
         </ContentWrapper>
       </SectionLight>
-    </>
+    </main>
     
   )
 }

@@ -21,7 +21,7 @@ const Team = () => {
   const onUnHoverImage = (event, avatarUrl) => event.target.style.background = avatarImageStyle({ url: avatarUrl, withGradient: true });
 
   return (
-    <>
+    <main>
       <SectionLight>
         <ContentWrapper>
           <H2Light>Who we are</H2Light>
@@ -48,7 +48,7 @@ const Team = () => {
           </MembersWrapper>
         </ContentWrapper>
       </SectionDark>
-    </>
+    </main>
   )
 }
 

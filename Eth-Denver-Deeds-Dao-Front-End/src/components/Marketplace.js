@@ -7,7 +7,7 @@ import { defaultImages } from '../constants/mockup-data';
 
 const Marketplace = () => {
   return (
-    <>
+    <main>
       <SectionLight>
         <ContentWrapper>
           <H2Light>Marketplace</H2Light>
@@ -18,7 +18,11 @@ const Marketplace = () => {
           <CardsWrapper>
           {defaultImages.map((s, idx) => (
             <div key={idx} className="card">
-              <div><img src={s} alt="" /></div>
+              <div>
+                <span className="img-wrapper">
+                  <div className="img" style={{background: 'url(' + s + ') center center / cover'}}></div>
+                </span>
+              </div>
               <h4>The Graph</h4>
               <p>The Graph is an indexing protocol for querying networks like Ethereum and IPFS. Anyone can build and publish open APIs, called subgraphs, making data easily accessible.</p>
               <div className="button-wrapper"><button><span>99$</span></button></div>
@@ -26,8 +30,7 @@ const Marketplace = () => {
           ))}
           </CardsWrapper>
       </SectionDark>
-    </>
-    
+    </main>
   )
 }
 
@@ -52,12 +55,20 @@ const CardsWrapper = styled.div`
       box-shadow: 0 0 0 4px ${primaryColor};
     }
 
-    div {
+    & > div {
       display: flex;
       justify-content: center;
       
-      img {
-        width: 64px;
+      .img-wrapper {
+        .img {
+          width: 86px;
+          height: 60px;
+          background-size: cover;
+        }
+        
+        padding: 10px;
+        border-radius: 10px;
+        background: rgb(255 255 255 / 5%);
       }
     }
 
