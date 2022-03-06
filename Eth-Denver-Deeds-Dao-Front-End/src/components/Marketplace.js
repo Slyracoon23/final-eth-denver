@@ -51,6 +51,10 @@ const CardsWrapper = styled.div`
 
     &:hover {
       box-shadow: 0 0 0 4px ${primaryColor};
+
+      .img {
+        transform: scale(1.35);
+      }
     }
 
     & > div {
@@ -67,6 +71,7 @@ const CardsWrapper = styled.div`
           width: 86px;
           height: 60px;
           background-size: cover;
+          transition: all 0.5s ease;
         }
       }
     }
