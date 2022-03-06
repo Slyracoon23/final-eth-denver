@@ -65,7 +65,7 @@ const H3Dark = ({children}) => {
     background: -webkit-linear-gradient(268deg,#c9f5fb,#00bcd494);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 7px 20px rgb(255 255 255 / 17%);
+    text-shadow: 0 4px 20px rgb(255 255 255 / 17%);
   `;
 
   return (
