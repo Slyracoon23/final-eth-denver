@@ -90,11 +90,12 @@ const CardsWrapper = styled.div`
           top: 0;
           left: 0;
           width: 0;
+          visibility: hidden;
           border-radius: 4px;
           border: 2px solid transparent;
           height: 100%;
           content: '';
-          background: transparent;
+          background: #3a113f;
           transition: all 0.5s ease;
         }
 
@@ -105,8 +106,8 @@ const CardsWrapper = styled.div`
         &:hover {
           &::before {
             width: 100%;
+            visibility: visible;
             border-color: ${primaryColor};
-            background: #3a113f;
           }
         }
       }

@@ -205,11 +205,12 @@ const ConnectWallet = styled.div`
       left: 0;
       width: 0;
       border-radius: 4px;
+      visibility: hidden;
       border: 3px solid transparent;
       height: 100%;
       content: '';
       background: transparent;
-      transition: all 0.3s ease;
+      transition: all 0.5s ease;
     }
 
     &:hover {
@@ -218,8 +219,9 @@ const ConnectWallet = styled.div`
       &::before {
         width: 100%;
         background: ${thirdColorHovered};
+        visibility: visible;
         box-shadow: 0 5px 20px -2px #6119a37a;
-        border-color: ${thirdColor};
+        border-color: #c74ac3;
       }
     }
   }
