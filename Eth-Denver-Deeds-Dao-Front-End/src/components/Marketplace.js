@@ -55,6 +55,10 @@ const CardsWrapper = styled.div`
       .img {
         transform: scale(1.35);
       }
+
+      button {
+        transform: scale(1.05);
+      }
     }
 
     & > div {
@@ -93,6 +97,7 @@ const CardsWrapper = styled.div`
       margin-top: 16px;
 
       button {
+        transition: all 0.5s ease;
         border-radius: 4px;
         color: white;
         height: 32px;
@@ -120,6 +125,8 @@ const CardsWrapper = styled.div`
         }
 
         &:hover {
+          transform: scale(1.08);
+
           &::before {
             width: 100%;
             visibility: visible;

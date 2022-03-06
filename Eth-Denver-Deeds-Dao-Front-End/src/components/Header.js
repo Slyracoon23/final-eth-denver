@@ -215,6 +215,7 @@ const ConnectWallet = styled.div`
 
     &:hover {
       color: white;
+      transform: scale(1.03);
 
       &::before {
         width: 100%;
