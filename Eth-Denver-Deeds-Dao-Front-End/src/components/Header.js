@@ -95,7 +95,7 @@ const DesktopMenu = styled.nav`
           bottom: -4px;
           transform: scaleX(0);
           transform-origin: 0 0;
-          transition: all .5s;
+          transition: all 0.8s;
           background: ${thirdColorLight};
           border-radius: 2px;
       }
