@@ -39,7 +39,7 @@ const CardsWrapper = styled.div`
 
   .card {
     padding: 24px;
-    background: linear-gradient(0,#a152ab7a,transparent);
+    background: linear-gradient(0,#e55be15c,transparent);
     border-radius: 4px;
     border-bottom-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -61,10 +61,10 @@ const CardsWrapper = styled.div`
     }
 
     p {
-      margin-top: 8px;
+      margin: 8px 0 24px 0;
       font-size: 14px;
       line-height: 1.25em;
-      color: ${primaryColorDark};
+      color: #9864c9db;
     }
 
     .button-wrapper {

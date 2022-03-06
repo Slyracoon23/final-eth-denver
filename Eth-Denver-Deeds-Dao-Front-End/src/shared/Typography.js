@@ -10,6 +10,7 @@ const H2Light = ({children}) => {
     background: -webkit-linear-gradient(0,#55ceff,#f675ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 14px 20px rgb(0 0 0 / 25%);
   `;
 
   return (
@@ -28,6 +29,7 @@ const H2Dark = ({children}) => {
     background: -webkit-linear-gradient(11deg,#c546bad9,#ab9fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 14px 20px rgb(0 0 0 / 25%);
   `;
 
   return (
@@ -45,6 +47,7 @@ const H3Light = ({children}) => {
     background: -webkit-linear-gradient(268deg,#c9f5fb,#00bcd494);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 14px 20px rgb(0 0 0 / 35%);
   `;
 
   return (
@@ -62,6 +65,7 @@ const H3Dark = ({children}) => {
     background: -webkit-linear-gradient(268deg,#c9f5fb,#00bcd494);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 7px 20px rgb(255 255 255 / 17%);
   `;
 
   return (
