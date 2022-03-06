@@ -45,6 +45,7 @@ const CardsWrapper = styled.div`
     border-top-right-radius: 12px;
     margin: 12px;
     max-width: 240px;
+    transition: all 0.3s ease;
     box-shadow: 0 0 0 2px ${primaryColor};
 
     &:hover {
