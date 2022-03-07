@@ -96,7 +96,7 @@ const DesktopMenu = styled.nav`
           transform: scaleX(0);
           transform-origin: 0 0;
           transition: all 0.8s;
-          background: ${thirdColorLight};
+          background: ${secondaryColorDark};
           border-radius: 2px;
       }
 
@@ -106,6 +106,7 @@ const DesktopMenu = styled.nav`
 
           &:after {
             transform: scaleX(1);
+            background: ${thirdColorLight};
           }
         }
       }

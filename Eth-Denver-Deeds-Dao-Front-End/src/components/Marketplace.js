@@ -36,7 +36,7 @@ const Marketplace = () => {
 
 const CardsWrapper = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: 24px auto 0 auto;
   flex-wrap: wrap;
   justify-content: center;
 

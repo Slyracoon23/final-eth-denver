@@ -86,6 +86,7 @@ const MembersWrapper = styled.ul`
 
     h4 {
       font-weight: bold;
+      margin-bottom: 4px;
     }
   }
 `;
