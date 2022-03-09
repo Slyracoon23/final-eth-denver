@@ -26,7 +26,7 @@ const Header = ({setMobileOpen, mobileOpen}) => {
       )}
       <div className="right">
         <ConnectWallet>
-          <button><span>Connect Wallet</span></button>
+          <button><span>Launch App</span></button>
         </ConnectWallet>
         {isMobile && (
           <MobileMenu>
