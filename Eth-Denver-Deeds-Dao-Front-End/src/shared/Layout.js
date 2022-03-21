@@ -76,7 +76,7 @@ const SectionDark = ({children}) => {
 
 const ContentWrapper = ({children}) => {
   const Wrapper = styled.div`
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 
     ${breakpoint(device.lg)} {

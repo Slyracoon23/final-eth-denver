@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import { ethereum, interop, scalability, security, socialSecurity, userFriendly } from '../constants/icons';
-import { primaryColor } from '../constants/theme';
+import { primaryColor, secondaryColor } from '../constants/theme';
 import { ContentWrapper, SectionLight, SectionDark } from '../shared/Layout';
 import { H2Light, H3Light, H3Dark } from '../shared/Typography';
 
@@ -10,23 +10,27 @@ const Home = () => {
     <main>
       <SectionLight>
         <ContentWrapper>
-          <H2Light>A wallet that protects U.</H2Light>
-          <p>
-            By ensuring the initiation of treatment for the patient on time, saving a life, avoiding the cumbersome process
-            of record creation, accessibility and authorization.
-          </p>
+          <H2Light>Fractionalized debt portfolios for NFTs.</H2Light>
+          <p>powered by Balancer's V2 liquidity pools</p>
         </ContentWrapper>
       </SectionLight>
 
       <SectionDark>
         <ContentWrapper>
           <H3Dark>How does it work?</H3Dark>
-          <p>
-            Health records are the most important documents which are maintained by the health care facilities of an Individual. 
-            It contains all Doctor's proceedings, Diagnostics and lab reports, etc. In response to this EHR was introduced; EHR 
-            stands for Electronic Health Records, which are electronic patient data/records maintained by hospitals for easy 
-            diagnostics and treatments to improve and streamline data entered into each patient's permanent healthcare file.
-          </p>
+          <StyledUl>
+            <li>
+              <p>DeedsDAO is a decentralized protocol that enables lenders of P2P NFT markets to unlock their liquidity!</p>
+            </li>
+            <li>
+              <p>Lender of P2P NFT markets will be able to supply their "Debt NFT Portfolio" a.k.a. Debt Pool to the DeedsDAO 
+              Protocol. The protocol will take their "Debt NFT Portfolio" and create a Balancer pool that will put the P2P 
+              debt NFT position on the secondary market.</p>
+            </li>
+            <li>
+              <p>Lenders creating pools get liquidity and investors get accessiblity to the P2P NFT lending/borrowing market.</p>
+            </li>
+          </StyledUl>
         </ContentWrapper>
       </SectionDark>
 
@@ -77,6 +81,19 @@ const Home = () => {
     
   )
 }
+
+const StyledUl = styled.ul`
+  margin-left: 24px;
+
+  li {
+    list-style-type: disc;
+    color: ${secondaryColor};
+  
+    &:not(:last-child) p {
+      margin-bottom: 12px;
+    }
+  }
+`;
 
 const FeaturesWrapper = styled.div`
     display: flex;
